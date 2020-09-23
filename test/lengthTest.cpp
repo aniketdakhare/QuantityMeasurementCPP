@@ -145,6 +145,14 @@ TEST(LengthTest, givenLengthsInInchAndCentimeter_WhenCheckedForValueAreNotEqual_
     ASSERT_FALSE(result);
 }
 
+TEST(LengthTest, givenLengthsInFeetAndCentimeter_WhenCheckedForValueAreEqual_ShouldReturnTrue)
+{
+    Length feet_value(2, Unit::FEET);
+    Length centimeter_value(60, Unit::CENTIMETER);
+    bool result = feet_value.compare(centimeter_value);
+    ASSERT_TRUE(result);
+}
+
 int main(int argc, char **argv) 
 {
     testing::InitGoogleTest(&argc, argv);
