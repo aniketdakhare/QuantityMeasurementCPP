@@ -4,7 +4,7 @@
 TEST(FeetTest, givenLengthsInFeet_WhenEqual_ShouldReturnTrue) 
 { 
     Length first_zero_feet(0, Unit::FEET), second_zero_feet(0, Unit::FEET);
-    bool result = (first_zero_feet == second_zero_feet);
+    bool result = first_zero_feet.compare(second_zero_feet);
     ASSERT_TRUE(result);
 }
 
@@ -26,7 +26,7 @@ TEST(FeetTest, givenLengthsInFeetAsSameObject_WhenCheckedForTheReference_ShouldR
 TEST(FeetTest, givenLengthsInFeet_WhenCheckedForTheType_ShouldReturnTrue)
 {
     Length first_feet(0, Unit::FEET), second_feet(0, Unit::FEET);
-    bool result = (first_feet == second_feet);
+    bool result = first_feet.compare(second_feet);
     ASSERT_TRUE(result);
 }
 
@@ -40,7 +40,7 @@ TEST(FeetTest, givenDifferentLengthsInFeet_WhenCheckedForValue_ShouldReturnFalse
 TEST(InchTest, givenLengthsInInch_WhenEqual_ShouldReturnTrue) 
 { 
     Length first_zero_inch(0, Unit::INCH), second_zero_inch(0, Unit::INCH);
-    bool result = (first_zero_inch == second_zero_inch);
+    bool result = first_zero_inch.compare(second_zero_inch);
     ASSERT_TRUE(result);
 }
 
@@ -62,7 +62,7 @@ TEST(InchTest, givenLengthsInInchAsSameObject_WhenCheckedForTheReference_ShouldR
 TEST(InchTest, givenLengthsInInch_WhenCheckedForTheType_ShouldReturnTrue)
 {
     Length first_inch(0, Unit::INCH), second_inch(0, Unit::INCH);
-    bool result = (first_inch == second_inch);
+    bool result = first_inch.compare(second_inch);
     ASSERT_TRUE(result);
 }
 
@@ -71,6 +71,14 @@ TEST(InchTest, givenDifferentLengthsInInch_WhenCheckedForValue_ShouldReturnFalse
     Length first_inch(3, Unit::INCH), second_inch(5, Unit::INCH);
     bool result = (first_inch == second_inch);
     ASSERT_FALSE(result);
+}
+
+TEST(LengthTest, givenLengthsInInchAndFeet_WhenCheckedForValueAreEqual_ShouldReturnTrue)
+{
+    Length inch_value(12, Unit::INCH);
+    Length feet_value(1, Unit::FEET);
+    bool result = feet_value.compare(inch_value);
+    ASSERT_TRUE(result);
 }
 
 int main(int argc, char **argv) 

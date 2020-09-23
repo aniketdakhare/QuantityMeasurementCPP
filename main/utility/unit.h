@@ -15,4 +15,5 @@ private:
 public:
     static const Unit INCH;
     static const Unit FEET;
+    bool operator== (Unit) const;
 };
