@@ -229,6 +229,14 @@ TEST(LengthTest, givenVolumeInGallonAndLitre_WhenCheckedForValueAreEqual_ShouldR
     ASSERT_TRUE(result);
 }
 
+TEST(LengthTest, givenVolumeInGallonAndLitre_WhenCheckedForValueAreNotEqual_ShouldReturnFalse)
+{
+    Length gallon_value(2, Unit::GALLON);
+    Length litre_value(2, Unit::LITRE);
+    bool result = gallon_value.compare(litre_value);
+    ASSERT_FALSE(result);
+}
+
 int main(int argc, char **argv) 
 {
     testing::InitGoogleTest(&argc, argv);
