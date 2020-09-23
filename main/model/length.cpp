@@ -1,3 +1,4 @@
+#include<math.h> 
 #include "../model/length.h"
 
 Length::Length(double value, Unit unit) : value(value), unit(unit){};
@@ -22,10 +23,10 @@ bool Length::compare(Length other)
 {
     if ((this->unit) == (other.unit))
         return (this == &other);
-    return (int)(this->value * this->unit.conversionFactor) == (int)(other.value * other.unit.conversionFactor);
+    return round(this->value * this->unit.conversionFactor) == round(other.value * other.unit.conversionFactor);
 }
 
 double Length::addValues(Length length1, Length length2)
 {
-    return (int)(length1.value * length1.unit.conversionFactor) + (int)(length2.value * length2.unit.conversionFactor);
+    return (length1.value * length1.unit.conversionFactor) + (length2.value * length2.unit.conversionFactor);
 }
