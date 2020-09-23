@@ -59,6 +59,13 @@ TEST(InchTest, givenLengthsInInchAsSameObject_WhenCheckedForTheReference_ShouldR
     ASSERT_TRUE(result);
 }
 
+TEST(InchTest, givenLengthsInInch_WhenCheckedForTheType_ShouldReturnTrue)
+{
+    Length first_inch(0, Unit::INCH), second_inch(0, Unit::INCH);
+    bool result = (first_inch == second_inch);
+    ASSERT_TRUE(result);
+}
+
 int main(int argc, char **argv) 
 {
     testing::InitGoogleTest(&argc, argv);
