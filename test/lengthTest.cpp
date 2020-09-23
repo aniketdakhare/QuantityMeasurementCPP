@@ -199,6 +199,14 @@ TEST(LengthTest, givenLengthsInFeetAndFeet_WhenAdded_ShouldReturnSumInInch)
     ASSERT_EQ(result, 24.0);
 }
 
+TEST(LengthTest, givenLengthsInInchAndCentimeter_WhenAdded_ShouldReturnSumInInch)
+{
+    Length centimeter_value(2.5, Unit::CENTIMETER); 
+    Length inch_value(2, Unit::INCH);
+    double result = inch_value.addValues(centimeter_value, inch_value);
+    ASSERT_EQ(result, 3.0);
+}
+
 int main(int argc, char **argv) 
 {
     testing::InitGoogleTest(&argc, argv);
