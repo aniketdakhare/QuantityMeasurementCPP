@@ -245,6 +245,14 @@ TEST(VolumeTest, givenVolumeInMillilitreAndMillilitre_WhenCheckedForValueAreEqua
     ASSERT_TRUE(result);
 }
 
+TEST(VolumeTest, givenVolumeInLitreAndMillilitre_WhenCheckedForValueAreEqual_ShouldReturnTrue)
+{
+    QuantityMeasurement ml_value(2000, Unit::MILLILITRE);
+    QuantityMeasurement litre_value(2, Unit::LITRE);
+    bool result = ml_value.compare(litre_value);
+    ASSERT_TRUE(result);
+}
+
 int main(int argc, char **argv) 
 {
     testing::InitGoogleTest(&argc, argv);
