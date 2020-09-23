@@ -207,6 +207,13 @@ TEST(LengthTest, givenLengthsInInchAndCentimeter_WhenAdded_ShouldReturnSumInInch
     ASSERT_EQ(result, 3.0);
 }
 
+TEST(LengthTest, givenVolumeInLitreAndLitre_WhenCheckedForValueAreEqual_ShouldReturnTrue)
+{
+    Length first_litre_value(2, Unit::LITRE), second_litre_value(2, Unit::LITRE);
+    bool result = first_litre_value.compare(second_litre_value);
+    ASSERT_TRUE(result);
+}
+
 int main(int argc, char **argv) 
 {
     testing::InitGoogleTest(&argc, argv);

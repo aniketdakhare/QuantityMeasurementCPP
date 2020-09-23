@@ -10,6 +10,12 @@ const Unit Unit::YARD(36.0, LENGTH);
 
 const Unit Unit::CENTIMETER(0.4, LENGTH);
 
+const Unit Unit::GALLON(3.78, VOLUME);
+
+const Unit Unit::LITRE(1.0, VOLUME);
+
+const Unit Unit::MILLILITRE(0.001, VOLUME);
+
 bool Unit::operator==(Unit other) const
 {
     return (this == &other);

@@ -1,4 +1,4 @@
 enum UnitType
 {
-    LENGTH
+    LENGTH, VOLUME
 };
