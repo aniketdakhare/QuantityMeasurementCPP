@@ -131,10 +131,50 @@ TEST(LengthTest, givenLengthsInYardAndFeet_WhenCheckedForValueAreEqual_ShouldRet
 
 TEST(LengthTest, givenLengthsInInchAndCentimeter_WhenCheckedForValueAreEqual_ShouldReturnTrue)
 {
-    Length inch_value(2.0, Unit::INCH);
-    Length centimeter_value(5.0, Unit::CENTIMETER);
+    Length inch_value(2, Unit::INCH);
+    Length centimeter_value(5, Unit::CENTIMETER);
     bool result = inch_value.compare(centimeter_value);
     ASSERT_TRUE(result);
+}
+
+TEST(LengthTest, givenLengthsInInchAndCentimeter_WhenCheckedForValueAreNotEqual_ShouldReturnFalse)
+{
+    Length inch_value(2, Unit::INCH);
+    Length centimeter_value(2, Unit::CENTIMETER);
+    bool result = inch_value.compare(centimeter_value);
+    ASSERT_FALSE(result);
+}
+
+TEST(LengthTest, givenLengthsInFeetAndCentimeter_WhenCheckedForValueAreEqual_ShouldReturnTrue)
+{
+    Length feet_value(2, Unit::FEET);
+    Length centimeter_value(60, Unit::CENTIMETER);
+    bool result = feet_value.compare(centimeter_value);
+    ASSERT_TRUE(result);
+}
+
+TEST(LengthTest, givenLengthsInFeetAndCentimeter_WhenCheckedForValueAreNotEqual_ShouldReturnFalse)
+{
+    Length feet_value(2, Unit::FEET);
+    Length centimeter_value(2, Unit::CENTIMETER);
+    bool result = feet_value.compare(centimeter_value);
+    ASSERT_FALSE(result);
+}
+
+TEST(LengthTest, givenLengthsInYardAndCentimeter_WhenCheckedForValueAreEqual_ShouldReturnTrue)
+{
+    Length yard_value(1, Unit::YARD);
+    Length centimeter_value(90, Unit::CENTIMETER);
+    bool result = yard_value.compare(centimeter_value);
+    ASSERT_TRUE(result);
+}
+
+TEST(LengthTest, givenLengthsInYardAndCentimeter_WhenCheckedForValueAreNotEqual_ShouldReturnFalse)
+{
+    Length yard_value(2, Unit::YARD);
+    Length centimeter_value(2, Unit::CENTIMETER);
+    bool result = yard_value.compare(centimeter_value);
+    ASSERT_FALSE(result);
 }
 
 int main(int argc, char **argv) 
