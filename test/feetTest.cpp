@@ -1,23 +1,33 @@
-#include "../main/feet.h"
+#include "../main/model/feet.h"
 #include <gtest/gtest.h>
 
-TEST(FeetTest, _0feet_and_0feet__should_be_equal) 
+TEST(FeetTest, givenLengthsInFeet_WhenEqual_ShouldReturnTrue) 
 { 
-    Feet first_zero_feet(0), second_zero_feet(0); 
-    ASSERT_EQ(first_zero_feet, second_zero_feet);
+    Feet first_zero_feet(0, LENGTH), second_zero_feet(0, LENGTH);
+    bool result = (first_zero_feet == second_zero_feet);
+    ASSERT_TRUE(result);
 }
 
-TEST(FeetTest, _null_feet_and_1feet__should_not_be_equal) 
+TEST(FeetTest, givenLengthsInFeet_WhenOneOfTheLengthIsNull_ShouldReturnFalse) 
 {
-    Feet feet(1);
-    ASSERT_NE(&feet, nullptr);
+    Feet feet(1, LENGTH);
+    bool result = (&feet == nullptr);
+    ASSERT_FALSE(result);
 }
 
-TEST(FeetTest, _one_object_and_2ref__should_be_equal) 
+TEST(FeetTest, givenLengthsInFeetAsSameObject_WhenCheckedForTheReference_ShouldReturnTrue) 
 {
-    Feet *first_ref = new Feet(1);
+    Feet *first_ref = new Feet(1, LENGTH);
     Feet *second_ref = first_ref;
-    ASSERT_EQ(first_ref, second_ref);
+    bool result = (first_ref == second_ref);
+    ASSERT_TRUE(result);
+}
+
+TEST(FeetTest, givenLengthsInFeet_WhenCheckedForTheType_ShouldReturnTrue)
+{
+    Feet first_zero_feet(0, LENGTH), second_zero_feet(0, LENGTH);
+    bool result = (first_zero_feet == first_zero_feet);
+    ASSERT_TRUE(result);
 }
 
 int main(int argc, char **argv) 
