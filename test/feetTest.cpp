@@ -25,9 +25,16 @@ TEST(FeetTest, givenLengthsInFeetAsSameObject_WhenCheckedForTheReference_ShouldR
 
 TEST(FeetTest, givenLengthsInFeet_WhenCheckedForTheType_ShouldReturnTrue)
 {
-    Feet first_zero_feet(0, LENGTH), second_zero_feet(0, LENGTH);
-    bool result = (first_zero_feet == first_zero_feet);
+    Feet first_feet(0, LENGTH), second_feet(0, LENGTH);
+    bool result = (first_feet == second_feet);
     ASSERT_TRUE(result);
+}
+
+TEST(FeetTest, givenDifferentLengthsInFeet_WhenCheckedForValue_ShouldReturnFalse)
+{
+    Feet first_feet(3, LENGTH), second_feet(5, LENGTH);
+    bool result = (first_feet == second_feet);
+    ASSERT_FALSE(result);
 }
 
 int main(int argc, char **argv) 
