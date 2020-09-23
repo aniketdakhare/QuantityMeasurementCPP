@@ -10,6 +10,4 @@ public:
    
     bool operator== (Feet) const;
     bool operator== (Feet *other) const;
-    bool operator!= (Feet* other) const;
-    bool operator!= (Feet other) const;
 };

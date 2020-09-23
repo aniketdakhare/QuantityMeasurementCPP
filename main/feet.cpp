@@ -12,21 +12,11 @@ bool Feet::operator== (Feet other) const
 
 bool Feet::operator== (Feet *other) const 
 {
-	if(other == nullptr) 
-	{
+	if(other == nullptr && this == nullptr) 
 		return false;
-	}
+
+	if(this == other) 
+		return true;
 	
 	return (this->value == other->value);
-}
-
-
-bool Feet::operator!= (Feet* other) const 
-{
-	return !(this == other);
-}
-
-bool Feet::operator!= (Feet other) const 
-{
-	return !(*this == other);
 }

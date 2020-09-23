@@ -9,8 +9,15 @@ TEST(FeetTest, _0feet_and_0feet__should_be_equal)
 
 TEST(FeetTest, _null_feet_and_1feet__should_not_be_equal) 
 {
-    Feet first_zero_feet(1);
-    ASSERT_NE(first_zero_feet, nullptr);
+    Feet feet(1);
+    ASSERT_NE(&feet, nullptr);
+}
+
+TEST(FeetTest, _one_object_and_2ref__should_be_equal) 
+{
+    Feet *first_ref = new Feet(1);
+    Feet *second_ref = first_ref;
+    ASSERT_EQ(first_ref, second_ref);
 }
 
 int main(int argc, char **argv) 
