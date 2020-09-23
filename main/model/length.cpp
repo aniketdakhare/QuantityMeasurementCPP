@@ -22,5 +22,5 @@ bool Length::compare(Length other)
 {
     if ((this->unit) == (other.unit))
         return (this == &other);
-    return (this->value * this->unit.conversionFactor) == (other.value * other.unit.conversionFactor);
+    return (int)(this->value * this->unit.conversionFactor) == (int)(other.value * other.unit.conversionFactor);
 }

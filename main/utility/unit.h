@@ -13,9 +13,7 @@ private:
     Unit(double value, UnitType type);
 
 public:
-    static const Unit INCH;
-    static const Unit FEET;
-    static const Unit YARD;
+    static const Unit INCH, FEET, YARD, CENTIMETER;
 
     bool operator== (Unit) const;
 };
