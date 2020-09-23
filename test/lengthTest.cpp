@@ -161,6 +161,14 @@ TEST(LengthTest, givenLengthsInFeetAndCentimeter_WhenCheckedForValueAreNotEqual_
     ASSERT_FALSE(result);
 }
 
+TEST(LengthTest, givenLengthsInYardAndCentimeter_WhenCheckedForValueAreEqual_ShouldReturnTrue)
+{
+    Length yard_value(1, Unit::YARD);
+    Length centimeter_value(90, Unit::CENTIMETER);
+    bool result = yard_value.compare(centimeter_value);
+    ASSERT_TRUE(result);
+}
+
 int main(int argc, char **argv) 
 {
     testing::InitGoogleTest(&argc, argv);
