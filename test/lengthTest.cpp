@@ -177,6 +177,36 @@ TEST(LengthTest, givenLengthsInYardAndCentimeter_WhenCheckedForValueAreNotEqual_
     ASSERT_FALSE(result);
 }
 
+TEST(LengthTest, givenLengthsInInchAndInch_WhenAdded_ShouldReturnSumInInch)
+{
+    Length first_inch(2, Unit::INCH), second_inch(2, Unit::INCH);
+    double result = first_inch.addValues(first_inch, second_inch);
+    ASSERT_EQ(result, 4.0);
+}
+
+TEST(LengthTest, givenLengthsInFeetAndInch_WhenAdded_ShouldReturnSumInInch)
+{
+    Length feet_value(1, Unit::FEET); 
+    Length inch_value(2, Unit::INCH);
+    double result = feet_value.addValues(feet_value, inch_value);
+    ASSERT_EQ(result, 14.0);
+}
+
+TEST(LengthTest, givenLengthsInFeetAndFeet_WhenAdded_ShouldReturnSumInInch)
+{
+    Length first_feet(1, Unit::FEET), second_feet(1, Unit::FEET);
+    double result = first_feet.addValues(first_feet, second_feet);
+    ASSERT_EQ(result, 24.0);
+}
+
+TEST(LengthTest, givenLengthsInInchAndCentimeter_WhenAdded_ShouldReturnSumInInch)
+{
+    Length centimeter_value(2.5, Unit::CENTIMETER); 
+    Length inch_value(2, Unit::INCH);
+    double result = inch_value.addValues(centimeter_value, inch_value);
+    ASSERT_EQ(result, 3.0);
+}
+
 int main(int argc, char **argv) 
 {
     testing::InitGoogleTest(&argc, argv);

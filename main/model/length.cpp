@@ -24,3 +24,8 @@ bool Length::compare(Length other)
         return (this == &other);
     return (int)(this->value * this->unit.conversionFactor) == (int)(other.value * other.unit.conversionFactor);
 }
+
+double Length::addValues(Length length1, Length length2)
+{
+    return (int)(length1.value * length1.unit.conversionFactor) + (int)(length2.value * length2.unit.conversionFactor);
+}
