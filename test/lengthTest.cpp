@@ -1,40 +1,47 @@
-#include "../main/model/feet.h"
+#include "../main/model/length.h"
 #include <gtest/gtest.h>
 
 TEST(FeetTest, givenLengthsInFeet_WhenEqual_ShouldReturnTrue) 
 { 
-    Feet first_zero_feet(0, LENGTH), second_zero_feet(0, LENGTH);
+    Length first_zero_feet(0, Unit::FEET), second_zero_feet(0, Unit::FEET);
     bool result = (first_zero_feet == second_zero_feet);
     ASSERT_TRUE(result);
 }
 
 TEST(FeetTest, givenLengthsInFeet_WhenOneOfTheLengthIsNull_ShouldReturnFalse) 
 {
-    Feet feet(1, LENGTH);
+    Length feet(1, Unit::FEET);
     bool result = (&feet == nullptr);
     ASSERT_FALSE(result);
 }
 
 TEST(FeetTest, givenLengthsInFeetAsSameObject_WhenCheckedForTheReference_ShouldReturnTrue) 
 {
-    Feet *first_ref = new Feet(1, LENGTH);
-    Feet *second_ref = first_ref;
+    Length *first_ref = new Length(1, Unit::FEET);
+    Length *second_ref = first_ref;
     bool result = (first_ref == second_ref);
     ASSERT_TRUE(result);
 }
 
 TEST(FeetTest, givenLengthsInFeet_WhenCheckedForTheType_ShouldReturnTrue)
 {
-    Feet first_feet(0, LENGTH), second_feet(0, LENGTH);
+    Length first_feet(0, Unit::FEET), second_feet(0, Unit::FEET);
     bool result = (first_feet == second_feet);
     ASSERT_TRUE(result);
 }
 
 TEST(FeetTest, givenDifferentLengthsInFeet_WhenCheckedForValue_ShouldReturnFalse)
 {
-    Feet first_feet(3, LENGTH), second_feet(5, LENGTH);
+    Length first_feet(3, Unit::FEET), second_feet(5, Unit::FEET);
     bool result = (first_feet == second_feet);
     ASSERT_FALSE(result);
+}
+
+TEST(InchTest, givenLengthsInInch_WhenEqual_ShouldReturnTrue) 
+{ 
+    Length first_zero_inch(0, Unit::INCH), second_zero_inch(0, Unit::INCH);
+    bool result = (first_zero_inch == second_zero_inch);
+    ASSERT_TRUE(result);
 }
 
 int main(int argc, char **argv) 
