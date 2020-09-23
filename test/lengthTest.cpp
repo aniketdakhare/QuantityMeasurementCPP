@@ -44,6 +44,21 @@ TEST(InchTest, givenLengthsInInch_WhenEqual_ShouldReturnTrue)
     ASSERT_TRUE(result);
 }
 
+TEST(InchTest, givenLengthsInInch_WhenOneOfTheLengthIsNull_ShouldReturnFalse) 
+{
+    Length feet(1, Unit::INCH);
+    bool result = (&feet == nullptr);
+    ASSERT_FALSE(result);
+}
+
+TEST(InchTest, givenLengthsInInchAsSameObject_WhenCheckedForTheReference_ShouldReturnTrue) 
+{
+    Length *first_ref = new Length(1, Unit::INCH);
+    Length *second_ref = first_ref;
+    bool result = (first_ref == second_ref);
+    ASSERT_TRUE(result);
+}
+
 int main(int argc, char **argv) 
 {
     testing::InitGoogleTest(&argc, argv);
