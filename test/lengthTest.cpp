@@ -177,6 +177,13 @@ TEST(LengthTest, givenLengthsInYardAndCentimeter_WhenCheckedForValueAreNotEqual_
     ASSERT_FALSE(result);
 }
 
+TEST(LengthTest, givenLengthsInInchAndInch_WhenAdded_ShouldReturnSumInInch)
+{
+    Length first_inch(2, Unit::INCH), second_inch(2, Unit::INCH);
+    double result = first_inch.addValues(first_inch, second_inch);
+    ASSERT_EQ(result, 4.0);
+}
+
 int main(int argc, char **argv) 
 {
     testing::InitGoogleTest(&argc, argv);
