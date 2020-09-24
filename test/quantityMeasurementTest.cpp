@@ -330,6 +330,14 @@ TEST(WeightTest, givenWeightInKilogramAndGram_WhenCheckedForValueAreEqual_Should
     ASSERT_TRUE(result);
 }
 
+TEST(WeightTest, givenWeightInKilogramAndGram_WhenCheckedForValueAreNotEqual_ShouldReturnFalse)
+{
+    QuantityMeasurement kg_value(2, Unit::KILOGRAM);
+    QuantityMeasurement gram_value(2, Unit::GRAM);
+    bool result = kg_value.compare(gram_value);
+    ASSERT_FALSE(result);
+}
+
 int main(int argc, char **argv) 
 {
     testing::InitGoogleTest(&argc, argv);
