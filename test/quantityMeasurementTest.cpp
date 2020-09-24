@@ -289,6 +289,14 @@ TEST(QuantityTypeTest, givenValuesInInchAndLitre_WhenAdded_ShouldThrowException)
     }
 }
 
+TEST(VolumeTest, givenVolumeInGallonAndLitre_WhenAdded_ShouldReturnSum)
+{
+    QuantityMeasurement gallon_value(1, Unit::GALLON);
+    QuantityMeasurement litre_value(3.78, Unit::LITRE);
+    double result = gallon_value.addValues(litre_value, gallon_value);
+    ASSERT_EQ(result, 7.56);
+}
+
 int main(int argc, char **argv) 
 {
     testing::InitGoogleTest(&argc, argv);
