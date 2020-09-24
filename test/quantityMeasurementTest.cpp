@@ -289,12 +289,20 @@ TEST(QuantityTypeTest, givenValuesInInchAndLitre_WhenAdded_ShouldThrowException)
     }
 }
 
-TEST(VolumeTest, givenVolumeInGallonAndLitre_WhenAdded_ShouldReturnSum)
+TEST(VolumeTest, givenVolumeInGallonAndLitre_WhenAdded_ShouldReturnSumInLitres)
 {
     QuantityMeasurement gallon_value(1, Unit::GALLON);
     QuantityMeasurement litre_value(3.78, Unit::LITRE);
     double result = gallon_value.addValues(litre_value, gallon_value);
     ASSERT_EQ(result, 7.56);
+}
+
+TEST(VolumeTest, givenVolumeInLitreAndMillilitre_WhenAdded_ShouldReturnSumInLitres)
+{
+    QuantityMeasurement ml_value(2000, Unit::MILLILITRE);
+    QuantityMeasurement litre_value(2, Unit::LITRE);
+    double result = ml_value.addValues(litre_value, ml_value);
+    ASSERT_EQ(result, 4);
 }
 
 int main(int argc, char **argv) 
