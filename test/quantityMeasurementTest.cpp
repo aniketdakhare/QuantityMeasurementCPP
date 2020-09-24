@@ -369,6 +369,14 @@ TEST(WeightTest, givenWeightInTonneAndGram_WhenCheckedForValueAreEqual_ShouldRet
     ASSERT_TRUE(result);
 }
 
+TEST(WeightTest, givenWeightInTonneAndGram_WhenCheckedForValueAreNotEqual_ShouldReturnFalse)
+{
+    QuantityMeasurement gram_value(2, Unit::GRAM);
+    QuantityMeasurement tonne_value(2, Unit::TONNE);
+    bool result = gram_value.compare(tonne_value);
+    ASSERT_FALSE(result);
+}
+
 int main(int argc, char **argv) 
 {
     testing::InitGoogleTest(&argc, argv);
