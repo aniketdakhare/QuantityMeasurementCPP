@@ -275,6 +275,20 @@ TEST(QuantityTypeTest, givenValuesInFeetAndLitre_WhenCompared_ShouldThrowExcepti
     }
 }
 
+TEST(QuantityTypeTest, givenValuesInInchAndLitre_WhenAdded_ShouldThrowException)
+{
+    QuantityMeasurement inch_value(2, Unit::INCH);
+    QuantityMeasurement litre_value(2, Unit::LITRE);
+    try
+    {
+        double result = inch_value.addValues(litre_value, inch_value);
+    }
+    catch(DifferentQuantityTypeException& e)
+    {
+        ASSERT_EQ(std::string("Operations with different unit types."), e.what());
+    }
+}
+
 int main(int argc, char **argv) 
 {
     testing::InitGoogleTest(&argc, argv);
