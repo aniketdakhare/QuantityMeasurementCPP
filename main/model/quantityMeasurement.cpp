@@ -23,16 +23,17 @@ bool QuantityMeasurement::compare(QuantityMeasurement other)
 {
 	if(this->unit.unitType != other.unit.unitType)
 		throw DifferentQuantityTypeException();
+
     if ((this->unit) == (other.unit))
         return (this == &other);
+
 	if(this->unit.unitType == TEMPERATURE || other.unit.unitType == TEMPERATURE)
 	{
-		double temperatureConstant1 = 1.8;
-		double temperatureConstant2 = 32.0;
-	    if (this->unit == Unit::CELSIUS)
-			return (round((other.value - temperatureConstant2) * 1/temperatureConstant1) == this->value);
-		return (round((other.value * temperatureConstant1) + temperatureConstant2) == this->value);
+	    if (this->unit.conversionFactor == 1.8)
+			return (round((other.value - other.unit.conversionFactor) * 1/this->unit.conversionFactor) == this->value);
+		return (round((other.value * other.unit.conversionFactor) + this->unit.conversionFactor) == this->value);
 	}
+
     return round(this->value * this->unit.conversionFactor) == round(other.value * other.unit.conversionFactor);
 }
 
@@ -40,5 +41,6 @@ double QuantityMeasurement::addValues(QuantityMeasurement quantity1, QuantityMea
 {
 	if(quantity1.unit.unitType != quantity2.unit.unitType)
 		throw DifferentQuantityTypeException();
-    return (quantity1.value * quantity1.unit.conversionFactor) + (quantity2.value * quantity2.unit.conversionFactor);
+    
+	return (quantity1.value * quantity1.unit.conversionFactor) + (quantity2.value * quantity2.unit.conversionFactor);
 }

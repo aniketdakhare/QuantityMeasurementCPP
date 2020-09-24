@@ -385,11 +385,19 @@ TEST(WeightTest, givenWeightInTonneAndGram_WhenAdded_ShouldReturnSumInKilogram)
     ASSERT_EQ(result, 1001.0);
 }
 
-TEST(TemperatureTest, givenWeightInCelsiusAndFahrenheit_WhenCompared_ShouldReturnTrue)
+TEST(TemperatureTest, givenTemperatureInCelsiusAndFahrenheit_WhenCompared_ShouldReturnTrue)
 {
     QuantityMeasurement fahrenheit_value(212.0, Unit::FAHRENHEIT);
     QuantityMeasurement celsius_value(100.0, Unit::CELSIUS);
     bool result = fahrenheit_value.compare(celsius_value);
+    ASSERT_TRUE(result);
+}
+
+TEST(TemperatureTest, givenTemperatureInFahrenheitAndCelsius_WhenCompared_ShouldReturnTrue)
+{
+    QuantityMeasurement fahrenheit_value(122.0, Unit::FAHRENHEIT);
+    QuantityMeasurement celsius_value(50.0, Unit::CELSIUS);
+    bool result = celsius_value.compare(fahrenheit_value);
     ASSERT_TRUE(result);
 }
 
