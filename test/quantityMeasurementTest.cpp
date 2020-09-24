@@ -261,6 +261,20 @@ TEST(VolumeTest, givenVolumeInLitreAndMillilitre_WhenCheckedForValueAreNotEqual_
     ASSERT_FALSE(result);
 }
 
+TEST(QuantityTypeTest, givenValuesInFeetAndLitre_WhenCompared_ShouldThrowException)
+{
+    QuantityMeasurement feet_value(2, Unit::FEET);
+    QuantityMeasurement litre_value(2, Unit::LITRE);
+    try
+    {
+        bool result = feet_value.compare(litre_value);
+    }
+    catch(DifferentQuantityTypeException& e)
+    {
+        ASSERT_EQ(std::string("Operations with different unit types."), e.what());
+    }
+}
+
 int main(int argc, char **argv) 
 {
     testing::InitGoogleTest(&argc, argv);

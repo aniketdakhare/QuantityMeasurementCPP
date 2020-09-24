@@ -21,6 +21,8 @@ bool QuantityMeasurement::operator== (QuantityMeasurement *other) const
 
 bool QuantityMeasurement::compare(QuantityMeasurement other)
 {
+	if(this->unit.unitType != other.unit.unitType)
+		throw DifferentQuantityTypeException();
     if ((this->unit) == (other.unit))
         return (this == &other);
     return round(this->value * this->unit.conversionFactor) == round(other.value * other.unit.conversionFactor);
@@ -28,5 +30,7 @@ bool QuantityMeasurement::compare(QuantityMeasurement other)
 
 double QuantityMeasurement::addValues(QuantityMeasurement quantity1, QuantityMeasurement quantity2)
 {
+	if(quantity1.unit.unitType != quantity2.unit.unitType)
+		throw DifferentQuantityTypeException();
     return (quantity1.value * quantity1.unit.conversionFactor) + (quantity2.value * quantity2.unit.conversionFactor);
 }

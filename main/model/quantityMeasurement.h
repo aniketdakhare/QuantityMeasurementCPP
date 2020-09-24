@@ -1,5 +1,7 @@
 #pragma once
 #include "../utility/unit.h"
+#include "../exception/quantityMeasurementException.h"
+
 using namespace std;
 
 class QuantityMeasurement 
