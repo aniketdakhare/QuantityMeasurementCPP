@@ -305,6 +305,14 @@ TEST(VolumeTest, givenVolumeInLitreAndMillilitre_WhenAdded_ShouldReturnSumInLitr
     ASSERT_EQ(result, 4);
 }
 
+TEST(WeightTest, givenWeightInKilogramAndKilogram_WhenCheckedForValueAreEqual_ShouldReturnTrue)
+{
+    QuantityMeasurement first_kg_value(2, Unit::KILOGRAM);
+    QuantityMeasurement second_kg_value(2, Unit::KILOGRAM);
+    bool result = first_kg_value.compare(second_kg_value);
+    ASSERT_TRUE(result);
+}
+
 int main(int argc, char **argv) 
 {
     testing::InitGoogleTest(&argc, argv);

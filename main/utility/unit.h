@@ -13,7 +13,8 @@ private:
     Unit(double value, UnitType type);
 
 public:
-    static const Unit INCH, FEET, YARD, CENTIMETER, GALLON, LITRE, MILLILITRE;
+    static const Unit INCH, FEET, YARD, CENTIMETER, GALLON, LITRE, MILLILITRE,
+    KILOGRAM, GRAM, TONNE;
 
     bool operator== (Unit) const;
 };
