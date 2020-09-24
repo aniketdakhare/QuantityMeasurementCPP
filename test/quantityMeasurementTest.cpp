@@ -401,6 +401,14 @@ TEST(TemperatureTest, givenTemperatureInFahrenheitAndCelsius_WhenCompared_Should
     ASSERT_TRUE(result);
 }
 
+TEST(TemperatureTest, givenWeightInFahrenheitAndCelsius_WhenCompareAndNotEqual_ShouldReturnFalse)
+{
+    QuantityMeasurement fahrenheit_value(50.0, Unit::FAHRENHEIT);
+    QuantityMeasurement celsius_value(50.0, Unit::CELSIUS);
+    bool result = celsius_value.compare(fahrenheit_value);
+    ASSERT_FALSE(result);
+}
+
 int main(int argc, char **argv) 
 {
     testing::InitGoogleTest(&argc, argv);
