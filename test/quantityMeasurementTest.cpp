@@ -385,6 +385,14 @@ TEST(WeightTest, givenWeightInTonneAndGram_WhenAdded_ShouldReturnSumInKilogram)
     ASSERT_EQ(result, 1001.0);
 }
 
+TEST(TemperatureTest, givenWeightInCelsiusAndFahrenheit_WhenCompared_ShouldReturnTrue)
+{
+    QuantityMeasurement fahrenheit_value(212.0, Unit::FAHRENHEIT);
+    QuantityMeasurement celsius_value(100.0, Unit::CELSIUS);
+    bool result = fahrenheit_value.compare(celsius_value);
+    ASSERT_TRUE(result);
+}
+
 int main(int argc, char **argv) 
 {
     testing::InitGoogleTest(&argc, argv);

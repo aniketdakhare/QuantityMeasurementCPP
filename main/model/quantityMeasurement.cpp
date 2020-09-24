@@ -25,6 +25,14 @@ bool QuantityMeasurement::compare(QuantityMeasurement other)
 		throw DifferentQuantityTypeException();
     if ((this->unit) == (other.unit))
         return (this == &other);
+	if(this->unit.unitType == TEMPERATURE || other.unit.unitType == TEMPERATURE)
+	{
+		double temperatureConstant1 = 1.8;
+		double temperatureConstant2 = 32.0;
+	    if (this->unit == Unit::CELSIUS)
+			return (round((other.value - temperatureConstant2) * 1/temperatureConstant1) == this->value);
+		return (round((other.value * temperatureConstant1) + temperatureConstant2) == this->value);
+	}
     return round(this->value * this->unit.conversionFactor) == round(other.value * other.unit.conversionFactor);
 }
 

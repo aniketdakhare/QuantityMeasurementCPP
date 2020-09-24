@@ -22,6 +22,10 @@ const Unit Unit::GRAM(0.001, WEIGHT);
 
 const Unit Unit::TONNE(1000.0, WEIGHT);
 
+const Unit Unit::CELSIUS(1, TEMPERATURE);
+
+const Unit Unit::FAHRENHEIT(1, TEMPERATURE);
+
 bool Unit::operator==(Unit other) const
 {
     return (this == &other);

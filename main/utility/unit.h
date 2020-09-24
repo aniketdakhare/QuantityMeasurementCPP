@@ -14,7 +14,7 @@ private:
 
 public:
     static const Unit INCH, FEET, YARD, CENTIMETER, GALLON, LITRE, MILLILITRE,
-    KILOGRAM, GRAM, TONNE;
+    KILOGRAM, GRAM, TONNE, CELSIUS, FAHRENHEIT;
 
     bool operator== (Unit) const;
 };

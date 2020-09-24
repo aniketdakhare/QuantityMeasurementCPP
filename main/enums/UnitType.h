@@ -1,4 +1,4 @@
 enum UnitType
 {
-    LENGTH, VOLUME, WEIGHT
+    LENGTH, VOLUME, WEIGHT, TEMPERATURE
 };
