@@ -321,11 +321,12 @@ TEST(WeightTest, givenWeightInGramAndGram_WhenCheckedForValueAreEqual_ShouldRetu
     ASSERT_TRUE(result);
 }
 
-TEST(WeightTest, givenWeightInTonneAndTonne_WhenCheckedForValueAreEqual_ShouldReturnTrue)
+
+TEST(WeightTest, givenWeightInKilogramAndGram_WhenCheckedForValueAreEqual_ShouldReturnTrue)
 {
-    QuantityMeasurement first_tonne_value(2, Unit::TONNE);
-    QuantityMeasurement second_tonne_value(2, Unit::TONNE);
-    bool result = first_tonne_value.compare(second_tonne_value);
+    QuantityMeasurement kg_value(2, Unit::KILOGRAM);
+    QuantityMeasurement gram_value(2000, Unit::GRAM);
+    bool result = kg_value.compare(gram_value);
     ASSERT_TRUE(result);
 }
 
